@@ -1,0 +1,20 @@
+steps:
+  # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      # TODO: Replace 'your-artifact-repo' with your actual Artifact Registry repository name
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/your-artifact-repo/mcp-gateway:latest'
+      - '.'
+
+  # Push the container image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      # TODO: Replace 'your-artifact-repo' with your actual Artifact Registry repository name
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/your-artifact-repo/mcp-gateway:latest'
+
+images:
+  # TODO: Replace 'your-artifact-repo' with your actual Artifact Registry repository name
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/your-artifact-repo/mcp-gateway:latest'

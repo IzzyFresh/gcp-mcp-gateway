@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+httpx
+google-auth
+requests
+google-cloud-secret-manager
+mcp
